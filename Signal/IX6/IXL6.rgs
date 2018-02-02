@@ -1,0 +1,26 @@
+HKCR
+{
+	IX6.IXL6.1 = s 'IXL6 Class'
+	{
+		CLSID = s '{DBAE610E-A64E-11D3-8E30-00504E02C39D}'
+	}
+	IX6.IXL6 = s 'IXL6 Class'
+	{
+		CLSID = s '{DBAE610E-A64E-11D3-8E30-00504E02C39D}'
+		CurVer = s 'IX6.IXL6.1'
+	}
+	NoRemove CLSID
+	{
+		ForceRemove {DBAE610E-A64E-11D3-8E30-00504E02C39D} = s 'IXL6 Class'
+		{
+			ProgID = s 'IX6.IXL6.1'
+			VersionIndependentProgID = s 'IX6.IXL6'
+			ForceRemove 'Programmable'
+			InprocServer32 = s '%MODULE%'
+			{
+				val ThreadingModel = s 'Apartment'
+			}
+			'TypeLib' = s '{DBAE6101-A64E-11D3-8E30-00504E02C39D}'
+		}
+	}
+}

@@ -1,0 +1,26 @@
+HKCR
+{
+	SigHelper.SHlp.1 = s 'SHlp Class'
+	{
+		CLSID = s '{78F8196E-A265-11D3-8E26-00504E02C39D}'
+	}
+	SigHelper.SHlp = s 'SHlp Class'
+	{
+		CLSID = s '{78F8196E-A265-11D3-8E26-00504E02C39D}'
+		CurVer = s 'SigHelper.SHlp.1'
+	}
+	NoRemove CLSID
+	{
+		ForceRemove {78F8196E-A265-11D3-8E26-00504E02C39D} = s 'SHlp Class'
+		{
+			ProgID = s 'SigHelper.SHlp.1'
+			VersionIndependentProgID = s 'SigHelper.SHlp'
+			ForceRemove 'Programmable'
+			InprocServer32 = s '%MODULE%'
+			{
+				val ThreadingModel = s 'Apartment'
+			}
+			'TypeLib' = s '{78F81961-A265-11D3-8E26-00504E02C39D}'
+		}
+	}
+}

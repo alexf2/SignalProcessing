@@ -1,0 +1,60 @@
+// SigHelper.idl : IDL source for SigHelper.dll
+//
+
+// This file will be processed by the MIDL tool to
+// produce the type library (SigHelper.tlb) and marshalling code.
+
+import "oaidl.idl";
+import "ocidl.idl";
+
+	[ public, 
+      version(1.0), 
+	  uuid(0D2874C1-A35C-11d3-8E29-00504E02C39D)
+	] typedef struct
+ {
+
+   double x, y;
+   VARIANT_BOOL b;
+
+ } XYPoint2;
+
+
+    [
+		object,
+		uuid(78F8196D-A265-11D3-8E26-00504E02C39D),
+		dual,
+		helpstring("ISHlp Interface"),
+		pointer_default(unique)		
+	]
+	interface ISHlp : IDispatch
+	 {
+		[id(1), helpstring("method InsertPoints")] HRESULT InsertPoints([in] VARIANT arrGenerated, [in] VARIANT arrSpec, [out] SAFEARRAY(XYPoint2)* arrRes);
+	 };
+	
+[
+	uuid(78F81961-A265-11D3-8E26-00504E02C39D),
+	version(1.0),
+	helpstring("SigHelper 1.0 Type Library")	
+]
+library SIGHELPERLib
+{
+	importlib("stdole32.tlb");
+	importlib("stdole2.tlb");
+
+			
+	//typedef [uuid(0D74D371-A274-11d3-8E26-00504E02C39D), public] struct Tag_XYPoint    	
+
+
+	[
+		uuid(78F8196E-A265-11D3-8E26-00504E02C39D),
+		helpstring("SHlp Class"),
+		appobject
+	]
+	coclass SHlp
+	{
+		[default] interface ISHlp;		
+	};
+};
+
+
+

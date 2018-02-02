@@ -1,0 +1,43 @@
+// IX3.idl : IDL source for IX3.dll
+//
+
+// This file will be processed by the MIDL tool to
+// produce the type library (IX3.tlb) and marshalling code.
+
+import "oaidl.idl";
+import "ocidl.idl";
+	[
+		object,
+		uuid(1611B86D-A458-11D3-8E2C-00504E02C39D),
+		dual,
+		helpstring("IIXL3 Interface"),
+		pointer_default(unique)
+	]
+	interface IIXL3 : IDispatch
+	{
+		[id(1), helpstring("method OnNet")] HRESULT OnNet([in] double T, [in] long N);
+		[id(2), helpstring("method OnSignalB")] HRESULT OnSignalB([in] double As, [in] double Ts);
+		[id(3), helpstring("method OnSignalC")] HRESULT OnSignalC([in] double Ag, [in] double To, [in] double Sg);
+		[id(4), helpstring("method Build")] HRESULT Build([in] VARIANT_BOOL vDirect);
+		[id(5), helpstring("method FetchResult")] HRESULT FetchResult( [out]SAFEARRAY(double)* arrRes );
+	};
+
+[
+	uuid(1611B861-A458-11D3-8E2C-00504E02C39D),
+	version(1.0),
+	helpstring("IX3 1.0 Type Library")
+]
+library IX3Lib
+{
+	importlib("stdole32.tlb");
+	importlib("stdole2.tlb");
+
+	[
+		uuid(1611B86E-A458-11D3-8E2C-00504E02C39D),
+		helpstring("IXL3 Class")
+	]
+	coclass IXL3
+	{
+		[default] interface IIXL3;
+	};
+};

@@ -1,0 +1,43 @@
+// IX8.idl : IDL source for IX8.dll
+//
+
+// This file will be processed by the MIDL tool to
+// produce the type library (IX8.tlb) and marshalling code.
+
+import "oaidl.idl";
+import "ocidl.idl";
+	[
+		object,
+		uuid(192B3ACD-A76D-11D3-8E34-00504E02C39D),
+		dual,
+		helpstring("IIXL8 Interface"),
+		pointer_default(unique)
+	]
+	interface IIXL8 : IDispatch
+	{
+		[id(1), helpstring("method OnNet")] HRESULT OnNet([in]double T, [in]long N);
+		[id(2), helpstring("method OnSignalB")] HRESULT OnSignalB([in]double Ag1, [in]double Tog1, [in]double Sg1);
+		[id(3), helpstring("method OnDirect")] HRESULT OnDirect([in]long Np);
+		[id(4), helpstring("method OnBack")] HRESULT OnBack([in]double Nm, [in]double Delta);
+		[id(5), helpstring("method FetchResults")] HRESULT FetchResults( [out]SAFEARRAY(double)* arrRes, [in]VARIANT_BOOL bWhat );
+	};
+
+[
+	uuid(192B3AC1-A76D-11D3-8E34-00504E02C39D),
+	version(1.0),
+	helpstring("IX8 1.0 Type Library")
+]
+library IX8Lib
+{
+	importlib("stdole32.tlb");
+	importlib("stdole2.tlb");
+
+	[
+		uuid(192B3ACE-A76D-11D3-8E34-00504E02C39D),
+		helpstring("IXL8 Class")
+	]
+	coclass IXL8
+	{
+		[default] interface IIXL8;
+	};
+};

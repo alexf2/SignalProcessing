@@ -1,0 +1,26 @@
+HKCR
+{
+	IX3.IXL3.1 = s 'IXL3 Class'
+	{
+		CLSID = s '{1611B86E-A458-11D3-8E2C-00504E02C39D}'
+	}
+	IX3.IXL3 = s 'IXL3 Class'
+	{
+		CLSID = s '{1611B86E-A458-11D3-8E2C-00504E02C39D}'
+		CurVer = s 'IX3.IXL3.1'
+	}
+	NoRemove CLSID
+	{
+		ForceRemove {1611B86E-A458-11D3-8E2C-00504E02C39D} = s 'IXL3 Class'
+		{
+			ProgID = s 'IX3.IXL3.1'
+			VersionIndependentProgID = s 'IX3.IXL3'
+			ForceRemove 'Programmable'
+			InprocServer32 = s '%MODULE%'
+			{
+				val ThreadingModel = s 'Apartment'
+			}
+			'TypeLib' = s '{1611B861-A458-11D3-8E2C-00504E02C39D}'
+		}
+	}
+}

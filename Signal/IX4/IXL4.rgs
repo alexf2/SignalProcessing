@@ -1,0 +1,26 @@
+HKCR
+{
+	IX4.IXL4.1 = s 'IXL4 Class'
+	{
+		CLSID = s '{4CE1B783-A4D0-11D3-8E2E-00504E02C39D}'
+	}
+	IX4.IXL4 = s 'IXL4 Class'
+	{
+		CLSID = s '{4CE1B783-A4D0-11D3-8E2E-00504E02C39D}'
+		CurVer = s 'IX4.IXL4.1'
+	}
+	NoRemove CLSID
+	{
+		ForceRemove {4CE1B783-A4D0-11D3-8E2E-00504E02C39D} = s 'IXL4 Class'
+		{
+			ProgID = s 'IX4.IXL4.1'
+			VersionIndependentProgID = s 'IX4.IXL4'
+			ForceRemove 'Programmable'
+			InprocServer32 = s '%MODULE%'
+			{
+				val ThreadingModel = s 'Apartment'
+			}
+			'TypeLib' = s '{4CE1B776-A4D0-11D3-8E2E-00504E02C39D}'
+		}
+	}
+}

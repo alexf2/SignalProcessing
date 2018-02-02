@@ -1,0 +1,42 @@
+// IX4.idl : IDL source for IX4.dll
+//
+
+// This file will be processed by the MIDL tool to
+// produce the type library (IX4.tlb) and marshalling code.
+
+import "oaidl.idl";
+import "ocidl.idl";
+	[
+		object,
+		uuid(4CE1B782-A4D0-11D3-8E2E-00504E02C39D),
+		dual,
+		helpstring("IIXL4 Interface"),
+		pointer_default(unique)
+	]
+	interface IIXL4 : IDispatch
+	{
+		[id(1), helpstring("method ReInit")] HRESULT ReInit([in] double A, [in] double B, [in] long N);
+		[id(2), helpstring("method OnSignalC")] HRESULT OnSignalC([in] double SgU, [in] double SgH);
+		[id(3), helpstring("method OnDirect")] HRESULT OnDirect();
+		[id(4), helpstring("method FetchResults")] HRESULT FetchResults( [out] SAFEARRAY(double)* arrRes );
+	};
+
+[
+	uuid(4CE1B776-A4D0-11D3-8E2E-00504E02C39D),
+	version(1.0),
+	helpstring("IX4 1.0 Type Library")
+]
+library IX4Lib
+{
+	importlib("stdole32.tlb");
+	importlib("stdole2.tlb");
+
+	[
+		uuid(4CE1B783-A4D0-11D3-8E2E-00504E02C39D),
+		helpstring("IXL4 Class")
+	]
+	coclass IXL4
+	{
+		[default] interface IIXL4;
+	};
+};

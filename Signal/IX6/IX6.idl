@@ -1,0 +1,43 @@
+// IX6.idl : IDL source for IX6.dll
+//
+
+// This file will be processed by the MIDL tool to
+// produce the type library (IX6.tlb) and marshalling code.
+
+import "oaidl.idl";
+import "ocidl.idl";
+	[
+		object,
+		uuid(DBAE610D-A64E-11D3-8E30-00504E02C39D),
+		dual,
+		helpstring("IIXL6 Interface"),
+		pointer_default(unique)
+	]
+	interface IIXL6 : IDispatch
+	{
+		[id(1), helpstring("method OnNet")] HRESULT OnNet([in]double T, [in]long N);
+		[id(2), helpstring("method OnSignalC")] HRESULT OnSignalC([in]double Ag, [in]double Tog, [in]double Sg);
+		[id(3), helpstring("method OnDirect")] HRESULT OnDirect([in] double AgP, [in] double ToP, [in] double SgP);
+		[id(4), helpstring("method OnBack")] HRESULT OnBack();
+		[id(5), helpstring("method FetchResults")] HRESULT FetchResults( [out]SAFEARRAY(double)* arrRes );
+	};
+
+[
+	uuid(DBAE6101-A64E-11D3-8E30-00504E02C39D),
+	version(1.0),
+	helpstring("IX6 1.0 Type Library")
+]
+library IX6Lib
+{
+	importlib("stdole32.tlb");
+	importlib("stdole2.tlb");
+
+	[
+		uuid(DBAE610E-A64E-11D3-8E30-00504E02C39D),
+		helpstring("IXL6 Class")
+	]
+	coclass IXL6
+	{
+		[default] interface IIXL6;
+	};
+};

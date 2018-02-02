@@ -1,0 +1,44 @@
+// IX7.idl : IDL source for IX7.dll
+//
+
+// This file will be processed by the MIDL tool to
+// produce the type library (IX7.tlb) and marshalling code.
+
+import "oaidl.idl";
+import "ocidl.idl";
+	[
+		object,
+		uuid(8E5CF670-A702-11D3-8E33-00504E02C39D),
+		dual,
+		helpstring("IIXL7 Interface"),
+		pointer_default(unique)
+	]
+	interface IIXL7 : IDispatch
+	{
+		[id(1), helpstring("method OnNet")] HRESULT OnNet([in]double T, [in]long N);
+		[id(2), helpstring("method OnSignalB")] HRESULT OnSignalB([in]double Ag2, [in]double Tog2, [in]double Sg2);
+		[id(3), helpstring("method OnSignalC")] HRESULT OnSignalC([in]double Ag1, [in]double Tog1, [in]double Sg1);
+		[id(4), helpstring("method OnDirect")] HRESULT OnDirect([in]double alpha, [in]double step);
+		[id(5), helpstring("method OnBack")] HRESULT OnBack([in]double alpha, [in]double step);
+		[id(6), helpstring("method Fetch")] HRESULT Fetch( [out]SAFEARRAY(double)* arrRes );
+	};
+
+[
+	uuid(8E5CF664-A702-11D3-8E33-00504E02C39D),
+	version(1.0),
+	helpstring("IX7 1.0 Type Library")
+]
+library IX7Lib
+{
+	importlib("stdole32.tlb");
+	importlib("stdole2.tlb");
+
+	[
+		uuid(8E5CF671-A702-11D3-8E33-00504E02C39D),
+		helpstring("IXL7 Class")
+	]
+	coclass IXL7
+	{
+		[default] interface IIXL7;
+	};
+};

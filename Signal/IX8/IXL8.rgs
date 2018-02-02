@@ -1,0 +1,26 @@
+HKCR
+{
+	IX8.IXL8.1 = s 'IXL8 Class'
+	{
+		CLSID = s '{192B3ACE-A76D-11D3-8E34-00504E02C39D}'
+	}
+	IX8.IXL8 = s 'IXL8 Class'
+	{
+		CLSID = s '{192B3ACE-A76D-11D3-8E34-00504E02C39D}'
+		CurVer = s 'IX8.IXL8.1'
+	}
+	NoRemove CLSID
+	{
+		ForceRemove {192B3ACE-A76D-11D3-8E34-00504E02C39D} = s 'IXL8 Class'
+		{
+			ProgID = s 'IX8.IXL8.1'
+			VersionIndependentProgID = s 'IX8.IXL8'
+			ForceRemove 'Programmable'
+			InprocServer32 = s '%MODULE%'
+			{
+				val ThreadingModel = s 'Apartment'
+			}
+			'TypeLib' = s '{192B3AC1-A76D-11D3-8E34-00504E02C39D}'
+		}
+	}
+}
